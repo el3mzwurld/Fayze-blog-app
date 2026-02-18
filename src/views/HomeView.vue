@@ -28,12 +28,15 @@ const visiblePages = computed(() => {
 });
 
 async function loadPosts(p = 1) {
+  if (loading.value) return;
   loading.value = true;
   error.value = null;
   try {
+    console.log(`Fetching page ${p}...`);
     const result = await fetchPosts(p, LIMIT);
     posts.value = result.data;
     meta.value = result.meta;
+    console.log(`Received ${result.data.length} posts for page ${p}`);
     page.value = p;
     window.scrollTo({ top: 0, behavior: "smooth" });
   } catch (e) {
@@ -68,10 +71,10 @@ try {
       <div v-if="meta" class="stats-bar">
         <span>{{ meta.total.toLocaleString() }} articles</span>
         <span class="dot" />
-        <span>Page {{ meta.page }} of {{ meta.totalPages }}</span>
+        <span>Page {{ page }} of {{ meta.totalPages }}</span>
       </div>
 
-      <div class="grid">
+      <div class="grid" :class="{ loading: loading }">
         <PostCard v-for="post in posts" :key="post.id" :post="post" />
       </div>
 
@@ -157,6 +160,10 @@ try {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 1.5rem;
+}
+.loading {
+  opacity: 0.5;
+  pointer-events: none;
 }
 .pagination {
   display: flex;
