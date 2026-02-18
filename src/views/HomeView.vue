@@ -113,6 +113,7 @@ try {
 .hero {
   text-align: center;
   margin-bottom: 2.5rem;
+  font-family: "PT Sans", sans-serif;
 }
 .hero-label {
   color: var(--accent);
@@ -124,7 +125,7 @@ try {
 }
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.03em;
   background: linear-gradient(135deg, #fff 30%, var(--accent2));
   -webkit-background-clip: text;

@@ -8,7 +8,6 @@ const props = defineProps({
     required: true,
   },
 });
-const placeHolderImg = img;
 const image = computed(() => imageUrl(props.post.featuredImage, 600, 340));
 const date = computed(() => formatDate(props.post.publishedAt));
 const time = computed(() => readTime(props.post.content));
@@ -50,7 +49,7 @@ const summary = computed(() => {
         <div class="card-meta">
           <span v-if="date">{{ date }}</span>
           <span v-if="date" class="dot" />
-          <span>{{ time }} min</span>
+          <span>{{ time }}min</span>
           <template v-if="post.viewCount > 0">
             <span class="dot" />
             <span>{{ post.viewCount.toLocaleString() }} views</span>
@@ -72,7 +71,7 @@ const summary = computed(() => {
   color: inherit;
   overflow: hidden;
   border-radius: var(--radius);
-
+  font-family: "dm mono", monospace;
   transition:
     transform 0.2s,
     border-color 0.2s,
@@ -120,7 +119,7 @@ const summary = computed(() => {
   flex: 1;
 }
 .card-title {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 700;
   line-height: 1.4;
   color: var(--text);
@@ -131,7 +130,7 @@ const summary = computed(() => {
 }
 .card-excerpt {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   line-height: 1.6;
   flex: 1;
 }
@@ -151,7 +150,7 @@ const summary = computed(() => {
   align-items: center;
   gap: 0.4rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.6rem;
 }
 .dot {
   width: 3px;
