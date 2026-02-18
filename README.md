@@ -9,10 +9,6 @@ A blog application built with **Vue** + **Vue Router 4**, using the real `https:
 | `GET /posts?page=1&limit=12` | Paginated post list |
 | `GET /posts/:uuid`           | Single post by UUID |
 
-**Response shape:**
-
-## Getting Started
-
 ```bash
 npm install
 npm run dev
