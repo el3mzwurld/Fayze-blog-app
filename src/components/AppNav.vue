@@ -9,7 +9,7 @@ const router = useRouter();
 
     <div class="nav-links">
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink :to="{ name: 'post', params: { id: 1 } }">Latest</RouterLink>
+      <a href="https://api.oluwasetemi.dev/posts/" target="_blank">API</a>
     </div>
   </nav>
 </template>
