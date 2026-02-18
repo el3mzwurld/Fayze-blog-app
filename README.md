@@ -11,7 +11,7 @@ A blog application built with **Vue** + **Vue Router 4**, using the real `https:
 
 **Response shape:**
 
-## Getting Started
+
 
 ```bash
 npm install
