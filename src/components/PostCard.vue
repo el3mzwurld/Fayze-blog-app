@@ -18,8 +18,8 @@ const title = computed(() => {
 });
 const summary = computed(() => {
   const e = props.post.excerpt ?? props.post.content ?? "";
-  const clean = e.replace(/\n/g, " ");
-  return clean.length > 120 ? clean.slice(0, 120) + "…" : clean;
+  const cleanTxt = e.replace(/\n/g, " ");
+  return cleanTxt.length > 120 ? cleanTxt.slice(0, 120) + "…" : cleanTxt;
 });
 </script>
 
@@ -27,9 +27,7 @@ const summary = computed(() => {
   <RouterLink :to="{ name: 'post', params: { id: post.id } }" class="card">
     <div v-if="image" class="card-img-wrap">
       <img :src="image" :alt="title" class="card-img" loading="lazy" />
-      <span v-if="post.category" class="card-category">{{
-        post.category
-      }}</span>
+      <span v-if="post.category" class="card-cat">{{ post.category }}</span>
     </div>
     <span
       v-else-if="post.category"
@@ -98,7 +96,7 @@ const summary = computed(() => {
 .card:hover .card-img {
   transform: scale(1.04);
 }
-.card-category {
+.card-cat {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
