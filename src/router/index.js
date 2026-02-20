@@ -16,7 +16,7 @@ const routes = [
     path: "/post/:id",
     name: "post",
     component: DetailView,
-    meta: { title: "Post Detail" },
+    meta: { title: "Fayze Blog Post" },
   },
   {
     path: "/404",
